@@ -325,7 +325,8 @@ function predictCollege(){
   let p = document.getElementById("percentile").value;
 
   let result = document.getElementById("result");
-
+result.innerHTML = "Finding best colleges...";
+  setTimeout(() => {
   if(p >= 95){
     result.innerHTML = "You may get: VIT Pune, PCCOE, DJ Sanghvi";
   }
@@ -336,7 +337,7 @@ function predictCollege(){
 
   else{
     result.innerHTML = "You may get good private colleges.";
-  }
+  }, 1500);
 
 }
 
