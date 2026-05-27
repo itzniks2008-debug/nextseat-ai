@@ -353,23 +353,50 @@ function predictCollege(){
 `;
 console.log("working");
   setTimeout(() => {
+<script>
 
-    if(p >= 95){
-      result.innerHTML =
-      "You may get: VIT Pune, PCCOE, DJ Sanghvi";
+async function predictCollege(){
+
+  let p = document.getElementById("percentile").value;
+
+  let result = document.getElementById("result");
+
+  result.innerHTML = `
+  <div class="loader"></div>
+  <p>Finding best colleges...</p>
+  `;
+
+  const response = await fetch(
+    "https://openrouter.ai/api/v1/chat/completions",
+    {
+      method: "POST",
+
+      headers: {
+        "Authorization": "Bearer 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",
+        "Content-Type": "application/json"
+      },
+
+      body: JSON.stringify({
+
+        model: "openai/gpt-3.5-turbo",
+
+        messages: [
+          {
+            role: "user",
+            content:
+            `Suggest engineering colleges for ${p} percentile in MHT CET in India`
+          }
+        ]
+
+      })
+
     }
+  );
 
-    else if(p >= 85){
-      result.innerHTML =
-      "You may get: AISSMS, JSPM, DY Patil";
-    }
+  const data = await response.json();
 
-    else{
-      result.innerHTML =
-      "You may get good private colleges.";
-    }
-
-  }, 1500);
+  result.innerHTML =
+  data.choices[0].message.content;
 
 }
 
