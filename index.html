@@ -361,43 +361,54 @@ async function predictCollege(){
 
   let result = document.getElementById("result");
 
-  result.innerHTML = `
-  <div class="loader"></div>
-  <p>Finding best colleges...</p>
-  `;
+  result.innerHTML = "Loading AI prediction...";
 
-  const response = await fetch(
-    "https://openrouter.ai/api/v1/chat/completions",
-    {
-      method: "POST",
+  try{
 
-      headers: {
-        "Authorization": "Bearer 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",
-        "Content-Type": "application/json"
-      },
+    const response = await fetch(
+      "https://openrouter.ai/api/v1/chat/completions",
+      {
 
-      body: JSON.stringify({
+        method:"POST",
 
-        model: "mistralai/mistral-7b-instruct",
+        headers:{
+          "Authorization":"Bearer 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 ",
+          "Content-Type":"application/json"
+        },
 
-        messages: [
-          {
-            role: "user",
-            content:
-            `Suggest engineering colleges for ${p} percentile in MHT CET in India`
-          }
-        ]
+        body:JSON.stringify({
 
-      })
+          model:"mistralai/mistral-7b-instruct",
 
-    }
-  );
+          messages:[
+            {
+              role:"user",
+              content:`Suggest MHT CET colleges for ${p} percentile`
+            }
+          ]
 
-  const data = await response.json();
-console.log(data);
-alert(JSON.stringify(data));
-  result.innerHTML =
-  data.choices[0].message.content;
+        })
+
+      }
+    );
+
+    const data = await response.json();
+
+    console.log(data);
+
+    result.innerHTML =
+    data.choices[0].message.content;
+
+  }
+
+  catch(error){
+
+    console.log(error);
+
+    result.innerHTML =
+    "Error connecting AI 😭";
+
+  }
 
 }
 
