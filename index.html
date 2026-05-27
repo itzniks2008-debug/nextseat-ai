@@ -304,14 +304,13 @@
   </section>
   <section class="predictor">
 
-  <h2>Percentile Predictor 🎯</h2>
+  <h2>College Predictor 🎯</h2>
 
   <input type="number" id="percentile" placeholder="Enter Your Percentile">
 
   <button onclick="predictCollege()" class="btn">
     Predict Colleges
   </button>
-
   <p id="result"></p>
 
   </section>
@@ -325,18 +324,26 @@ function predictCollege(){
   let p = document.getElementById("percentile").value;
 
   let result = document.getElementById("result");
-result.innerHTML = "Finding best colleges...";
+
+  result.innerHTML = "Finding best colleges...";
+
   setTimeout(() => {
-  if(p >= 95){
-    result.innerHTML = "You may get: VIT Pune, PCCOE, DJ Sanghvi";
-  }
 
-  else if(p >= 85){
-    result.innerHTML = "You may get: AISSMS, JSPM, PCCOE";
-  }
+    if(p >= 95){
+      result.innerHTML =
+      "You may get: VIT Pune, PCCOE, DJ Sanghvi";
+    }
 
-  else{
-    result.innerHTML = "You may get good private colleges.";
+    else if(p >= 85){
+      result.innerHTML =
+      "You may get: AISSMS, JSPM, DY Patil";
+    }
+
+    else{
+      result.innerHTML =
+      "You may get good private colleges.";
+    }
+
   }, 1500);
 
 }
