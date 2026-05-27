@@ -183,6 +183,24 @@
   color:#cbd5e1;
   font-size:18px;
 }
+    .predictor{
+  padding:60px 20px;
+  text-align:center;
+}
+
+.predictor input{
+  padding:12px;
+  width:250px;
+  border:none;
+  border-radius:10px;
+  margin:20px;
+}
+
+#result{
+  margin-top:20px;
+  font-size:20px;
+  color:#38bdf8;
+    }
   </style>
 </head>
 
@@ -284,9 +302,44 @@
   <p>Telegram: @nikhil_dikkatwar</p>
 
   </section>
+  <section class="predictor">
+
+  <h2>Percentile Predictor 🎯</h2>
+
+  <input type="number" id="percentile" placeholder="Enter Your Percentile">
+
+  <button onclick="predictCollege()" class="btn">
+    Predict Colleges
+  </button>
+
+  <p id="result"></p>
+
+  </section>
   <footer>
     <p>Made with ❤️ by Nikhil</p>
   </footer>
+<script>
 
+function predictCollege(){
+
+  let p = document.getElementById("percentile").value;
+
+  let result = document.getElementById("result");
+
+  if(p >= 95){
+    result.innerHTML = "You may get: VIT Pune, PCCOE, DJ Sanghvi";
+  }
+
+  else if(p >= 85){
+    result.innerHTML = "You may get: AISSMS, JSPM, PCCOE";
+  }
+
+  else{
+    result.innerHTML = "You may get good private colleges.";
+  }
+
+}
+
+</script>
 </body>
 </html>
