@@ -5,7 +5,39 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <title>NextSeat AI</title>
+.features{
+  padding:60px 20px;
+  text-align:center;
+}
 
+.features h2{
+  font-size:40px;
+  margin-bottom:40px;
+}
+
+.cards{
+  display:flex;
+  gap:20px;
+  justify-content:center;
+  flex-wrap:wrap;
+}
+
+.card{
+  background:#1e293b;
+  padding:25px;
+  width:250px;
+  border-radius:15px;
+  transition:0.3s;
+}
+
+.card:hover{
+  transform:translateY(-10px);
+}
+
+.card h3{
+  color:#38bdf8;
+  margin-bottom:10px;
+}
   <style>
 
     *{
@@ -203,7 +235,30 @@
     </div>
 
   </section>
+<section class="features">
 
+  <h2>Top Features 🚀</h2>
+
+  <div class="cards">
+
+    <div class="card">
+      <h3>College Predictor</h3>
+      <p>Predict colleges using your percentile.</p>
+    </div>
+
+    <div class="card">
+      <h3>AI Guidance</h3>
+      <p>Get smart counselling suggestions instantly.</p>
+    </div>
+
+    <div class="card">
+      <h3>Branch Explorer</h3>
+      <p>Explore branches according to your interests.</p>
+    </div>
+
+  </div>
+
+</section>
   <footer>
     <p>Made with ❤️ by Nikhil</p>
   </footer>
