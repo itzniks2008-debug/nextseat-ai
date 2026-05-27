@@ -394,7 +394,8 @@ async function predictCollege(){
   );
 
   const data = await response.json();
-
+console.log(data);
+alert(JSON.stringify(data));
   result.innerHTML =
   data.choices[0].message.content;
 
