@@ -204,6 +204,25 @@
  html{
   scroll-behavior:smooth;
     }
+ .loader{
+  border:5px solid #1e293b;
+  border-top:5px solid #38bdf8;
+  border-radius:50%;
+  width:40px;
+  height:40px;
+  margin:20px auto;
+  animation:spin 1s linear infinite;
+}
+
+@keyframes spin{
+  0%{
+    transform:rotate(0deg);
+  }
+
+  100%{
+    transform:rotate(360deg);
+  }
+}
   </style>
 </head>
 
@@ -328,7 +347,10 @@ function predictCollege(){
 
   let result = document.getElementById("result");
 
-  result.innerHTML = "Finding best colleges...";
+  result.innerHTML = `
+<div class="loader"></div>
+<p>Finding best colleges...</p>
+`;
 console.log("working");
   setTimeout(() => {
 
