@@ -336,54 +336,54 @@
   <p id="result"></p>
 
   </section>
+  
   <footer>
-    <script>
+<p>Made with ❤️ by Nikhil</p>
+</footer>
+
+<script>
 
 function predictCollege(){
+let p = document.getElementById("percentile").value;
 
-  let p = document.getElementById("percentile").value;
+let result = document.getElementById("result");
 
-  let result = document.getElementById("result");
+result.innerHTML = "Finding best colleges...";
 
-  result.innerHTML = "Finding best colleges...";
+setTimeout(() => {
 
-  setTimeout(() => {
+if(p >= 99){
 
-    if(p >= 99){
-
-      result.innerHTML =
-      "COEP Pune, VJTI Mumbai, SPIT Mumbai";
-
-    }
-
-    else if(p >= 95){
-
-      result.innerHTML =
-      "VIT Pune, PCCOE, DJ Sanghvi";
-
-    }
-
-    else if(p >= 90){
-
-      result.innerHTML =
-      "AISSMS, JSPM, DY Patil";
-
-    }
-
-    else{
-
-      result.innerHTML =
-      "Good private engineering colleges available.";
-
-    }
-
-  }, 1500);
+result.innerHTML =
+"COEP, VJTI, SPIT";
 
 }
 
-    </script>
-    <p>Made with ❤️ by Nikhil</p>
-  </footer>
+else if(p >= 95){
+
+result.innerHTML =
+"VIT Pune, PCCOE, DJ Sanghvi";
+
+}
+
+else if(p >= 90){
+
+result.innerHTML =
+"AISSMS, JSPM, DY Patil";
+
+}
+
+else{
+
+result.innerHTML =
+"Good private engineering colleges available.";
+
+}
+
+}, 1500);
+}
+
+</script>
 
 </body>
 </html>
